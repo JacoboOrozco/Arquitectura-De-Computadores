@@ -1,0 +1,29 @@
+// Code your design here
+// ALU DESING
+module alu(A, B, Alu_Op, Alu_Out);
+  input[31:0] A;
+  input [31:0] B;
+  input [2:0] Alu_Op;
+  output[31:0] Alu_Out;
+  reg[31:0] Alu_Result;
+  assign Alu_Out = Alu_Result;
+  always @(*)
+    begin
+      case(Alu_Op)
+        3'b000: 
+          Alu_Result = A + B;
+        3'b001: 
+          Alu_Result = A - B; 
+        3'b010: 
+          Alu_Result = A * B;
+        3'b011: 
+          Alu_Result = A / B;
+        3'b100: 
+          Alu_Result = A & B;
+        3'b101: 
+          Alu_Result = A | B;
+        3'b110: 
+          Alu_Result = A ^ B;
+      endcase 
+    end
+endmodule 
