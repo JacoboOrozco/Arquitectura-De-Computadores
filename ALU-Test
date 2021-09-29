@@ -1,0 +1,64 @@
+// Code your testbench here
+// or browse Examples
+module test;
+  reg[31:0] A;
+  reg[31:0] B;
+  reg[2:0] Alu_Op;
+  wire[31:0] Alu_Out;
+  
+  alu ALU(.A(A), .B(B), .Alu_Op(Alu_Op), .Alu_Out(Alu_Out));
+  
+  initial begin
+    // Dump waves
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+    
+    $display("ADDITION.");
+    A = 10;
+    B = 6;
+    Alu_Op = 0;
+    display;
+    
+    $display("SUBTRACTION.");
+    A = 1;
+    B = 1;
+    Alu_Op = 1;
+    display;
+    
+    $display("MULTIPLICATION.");
+    A = 1;
+    B = 1;
+    Alu_Op = 2;
+    display;
+    
+    $display("DIVISION.");
+    A = 1;
+    B = 1;
+    Alu_Op = 3;
+    display;
+    
+    $display("AND.");
+    A = 1;
+    B = 1;
+    Alu_Op = 4;
+    display;
+    
+    $display("OR.");
+    A = 1;
+    B = 1;
+    Alu_Op = 5;
+    display;
+    
+    $display("XOR.");
+    A = 1;
+    B = 1;
+    Alu_Op = 6;
+    display;
+  end 
+  
+  task display;
+    #1 $display("Alu_Op:%0h, Alu_Out:%0h",
+                Alu_Op, Alu_Out);
+  endtask
+    
+endmodule
